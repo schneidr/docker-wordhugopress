@@ -5,6 +5,5 @@ WORKDIR /opt/wordhugopress/
 
 RUN ./gradlew clean build
 
-CMD ["bash"]
-#ENTRYPOINT [ "sh", "./gradlew" ]
-#CMD [ "clean", "build", "run" ]
+ENTRYPOINT [ "./gradlew" ]
+CMD [ "run" ]
