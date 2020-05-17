@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:job_repository_db
+    username: sa
+    password: sa
+  batch:
+    initialize-schema: always
+    job:
+      names: convertPostsJob
+  freemarker:
+    enabled: true
+
+app:
+  sources:
+    regular:
+      wordpress-home: /input/
+      wordpress-remote-base-url: http://orangelvira.com/
+      database:
+        url: jdbc:mysql://localhost:3306/orangelv_wp1?useJDBCCompliantTimezoneShift=true&serverTimezone=Europe/Berlin
+        username: root
+        password: mysql
+      tags:
+        - 'regular'
+      categories:
+        - 'Basic posts'
+    shop:
+      wordpress-home: /input2/
+      wordpress-remote-base-url: http://shop.orangelvira.com/
+      target-resource-suffix: "-s"
+      database:
+        url: jdbc:mysql://localhost:3306/orangelv_wp2_shop?useJDBCCompliantTimezoneShift=true&serverTimezone=Europe/Berlin
+        username: root
+        password: mysql
+      tags:
+        - 'extra'
+      categories:
+        - 'Limited edition posts'
+  target:
+    hugo-site-content-items-dir: output
