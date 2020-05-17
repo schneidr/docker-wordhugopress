@@ -1,0 +1,3 @@
+[submodule "wordhugopress"]
+	path = wordhugopress
+	url = https://github.com/nantipov/wordhugopress.git
